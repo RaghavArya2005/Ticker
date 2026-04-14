@@ -32,32 +32,37 @@ def ascii_chart(prices, width=40, height=8, color="green"):
     console.print(f"{indent}{' ' * (label_width + 1)} [dim]{month_label}{' ' * gap}{today_label}[/dim]")
 
 
-symbol = input("\nEnter stock symbol (type quit to exit): ").upper()
-while (symbol != "QUIT"):
-    try:
-        ticker = yf.Ticker(symbol)
-        info = ticker.info
-
-        name = info["longName"]
-
-        current = info.get("currentPrice") or info.get("regularMarketPrice")
-        prev_close = info["previousClose"]
-        change = current - prev_close
-        change_pct = (change/prev_close) * 100
-
-        hist = ticker.history(period="1mo")
-        closes =list(hist["Close"])
-
-        color = "green" if change >= 0 else "red"
-        arrow = "▲" if change >= 0 else "▼"
-
-        console.print(f"\n{name} ({symbol})", style="bold white")
-        console.print(f"\nCurrent Price: {current}$", style = "bold white")
-        console.print(f"Change: [bold {color}]{change:.2f} ({change_pct:.2f}%) {arrow} today [/bold {color}]", style = "bold white")
-
-        ascii_chart(closes, color = color)
-    
-    except KeyError:
-        console.print(f"[bold red]'{symbol}' not found. Check the symbol and try again.[/bold red]")
-
+def main():
     symbol = input("\nEnter stock symbol (type quit to exit): ").upper()
+    while (symbol != "QUIT"):
+        try:
+            ticker = yf.Ticker(symbol)
+            info = ticker.info
+
+            name = info["longName"]
+
+            current = info.get("currentPrice") or info.get("regularMarketPrice")
+            prev_close = info["previousClose"]
+            change = current - prev_close
+            change_pct = (change/prev_close) * 100
+
+            hist = ticker.history(period="1mo")
+            closes = list(hist["Close"])
+
+            color = "green" if change >= 0 else "red"
+            arrow = "▲" if change >= 0 else "▼"
+
+            console.print(f"\n{name} ({symbol})", style="bold white")
+            console.print(f"\nCurrent Price: {current}$", style = "bold white")
+            console.print(f"Change: [bold {color}]{change:.2f} ({change_pct:.2f}%) {arrow} today [/bold {color}]", style = "bold white")
+
+            ascii_chart(closes, color = color)
+
+        except KeyError:
+            console.print(f"[bold red]'{symbol}' not found. Check the symbol and try again.[/bold red]")
+
+        symbol = input("\nEnter stock symbol (type quit to exit): ").upper()
+
+
+if __name__ == "__main__":
+    main()
