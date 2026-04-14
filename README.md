@@ -46,5 +46,5 @@ Type `quit` to exit.
 
 ## Built With
 
-- [yfinance](https://github.com/ranaroussi/yfinance) — Yahoo Finance data
-- [rich](https://github.com/Textualize/rich) — Terminal formatting
+- [yfinance](https://github.com/ranaroussi/yfinance) -> Yahoo Finance data
+- [rich](https://github.com/Textualize/rich) -> Terminal formatting
