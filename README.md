@@ -1,13 +1,13 @@
 # 📈 Terminal Stock Ticker
 
-A terminal-based stock ticker built in Python. Look up any stock symbol to get the live price, daily change, and a 1-month ASCII price chart — all with color-coded output in the terminal.
+A terminal-based stock ticker built in Python. Look up any stock symbol to get the live price, daily change, and a 1-month ASCII price chart, all with color-coded output in the terminal.
 
 ## Features
 
 - Live stock price and daily change
 - Color-coded output (green/red)
 - 1-month ASCII price chart
-- Works with stocks and crypto (e.g. `BTC-USD`)
+- Works with stocks and crypto (ex: `BTC-USD`)
 - Error handling for invalid symbols
 
 ## Setup
