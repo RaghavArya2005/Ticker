@@ -52,8 +52,8 @@ while (symbol != "QUIT"):
         arrow = "▲" if change >= 0 else "▼"
 
         console.print(f"\n{name} ({symbol})", style="bold white")
-        console.print(f"\nCurrent Price: {current} $", style = "bold white")
-        console.print(f"Change: [bold {color}]{change:.2f} ({change_pct:.2f} %) {arrow} today [/bold {color}]", style = "bold white")
+        console.print(f"\nCurrent Price: {current}$", style = "bold white")
+        console.print(f"Change: [bold {color}]{change:.2f} ({change_pct:.2f}%) {arrow} today [/bold {color}]", style = "bold white")
 
         ascii_chart(closes, color = color)
     
