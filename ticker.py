@@ -40,7 +40,7 @@ while (symbol != "QUIT"):
 
         name = info["longName"]
 
-        current = info["currentPrice"]
+        current = info.get("currentPrice") or info.get("regularMarketPrice")
         prev_close = info["previousClose"]
         change = current - prev_close
         change_pct = (change/prev_close) * 100
